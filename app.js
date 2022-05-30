@@ -174,13 +174,18 @@ app.post("/delete", function(req, res) {
 //   res.redirect("/work")
 //
 // });
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 3000;
-}
-app.listen(port);
 
+// let port = process.env.PORT;
+// if (port == null || port == "") {
+//   port = 3000;
+// }
+// app.listen(port);
+//
+//
+// app.listen(port, function() {
+//   console.log("server has started successfully");
+// })
 
-app.listen(port, function() {
-  console.log("server has started successfully");
-})
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
